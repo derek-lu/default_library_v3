@@ -1,0 +1,990 @@
+body {
+    font-family: Helvetica Neue;
+    font-size: 12px;
+    margin: 0px;
+    padding: 0px;
+}
+
+body, #archive-grid, #sections-grid {
+    background-color: #F7F7F7;;
+}
+
+#banner {
+    margin: 46px 0px 0px 0px;
+    height: 140px;
+    display: block;
+    border-bottom: 1px solid #B1B1B1;
+}
+
+/* The black header at the top. */
+#header {
+    background-color: #F7F7F7;
+    width: 100%;
+    height: 46px;
+    position: fixed;
+    z-index: 7;
+    display: table;
+    padding: 0px;
+    top: 0px;
+    white-space: nowrap;
+    border-bottom: 1px solid #B1B1B1;
+}
+
+#print-subscriber-login, #subscribe  {
+    float: left;
+    margin-right: 10px;
+    padding-top: 15px;
+    margin-left: 15px;
+}
+
+.text-link, .text-link-red {
+    -webkit-user-select: none;
+    cursor: default;
+    font-size: 14px;
+}
+
+.text-link {
+    color: #00A9DF;
+}
+
+.text-link:active {
+    color: rgba(0,169,223, .5);
+}
+
+.text-link-red {
+    color: #FF0000;
+}
+
+.text-link-red:active {
+    color: rgba(255,0,0,.5);
+}
+
+.text-link.disabled, .text-link-red.disabled {
+    color: #c4c4c4;
+}
+
+.text-link.disabled:active, .text-link-red.disabled:active {
+    color: #c4c4c4;
+}
+
+#header-left-column-container {
+    width: 200px;
+    height: 46px;
+    float: left;
+    display: inline-block;
+    position: absolute;
+}
+
+#header-right-column-container {
+    width: 200px;
+    float: right;
+    display: inline-block;
+    text-align: right;
+}
+
+#title, #spinner-title {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    width: 400px;
+    display: block;
+    margin: auto;
+    padding-top: 14px;
+    color: #000000;
+}
+
+#title-image {
+    display:block;
+    margin: 0 auto;
+    position: relative;
+}
+
+.archive-view, .sections-view {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 8;
+}
+
+#archive-grid, #sections-grid {
+    padding-top: 81px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+#archive-view-msg {
+    color: #000000;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 150px;
+}
+
+#archive-view-left-column, #sections-view-left-column {
+    float: left;
+    display: inline-block;
+    width: 200px;
+}
+
+#archive-view-right-column, #sections-view-right-column {
+    float: right;
+    display: inline-block;
+    margin-right: 10px;
+    width: 200px;
+    text-align: right;
+}
+
+.archive-view #title, .sections-view #title {
+    position: absolute;
+    margin-left:auto;
+    margin-right:auto;
+    left:0;
+    right:0;
+    font-weight: normal;
+}
+
+.archive-view .text-link, .archive-view .text-link-red, .sections-view .text-link {
+    display: inline-block;
+    margin: 15px 0px 0px 15px;
+}
+
+.sections-view .button {
+    width: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.archive-view-selected {
+    border: 2px solid #B52517;
+    position: absolute;
+    top: -2px;
+    left: -2px;
+}
+
+.archive-view-selected-check-icon-container {
+    background-color: #B31B18;
+    -webkit-border-radius:16px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 21px;
+    height: 20px;
+    padding: 8px 0px 0px 7px;
+}
+
+.archive-view-selected-check-icon {
+    background: url("images/icon_check.png") no-repeat;
+    background-size: 16px 12px;
+    width: 16px;
+    height: 12px;
+}
+
+/* The text link to display more folios in grid view. */
+#show-more {
+    font-size: 14px;
+    margin: 10px;
+    text-align: center;
+    color: #00A9DF;
+    clear: both;
+    white-space: none;
+    display: none;
+}
+
+#header-drop-down {
+    float: right;
+    margin-left: 15px;
+    display: inline;
+    position: absolute;
+    right: -15px;
+    top: 2px;
+}
+
+.button {
+    font-size: 12px;
+    text-align: center;
+    padding-top: 7px;
+    -webkit-user-select: none;
+    cursor: default;
+    height: 15px;
+    -webkit-border-radius:3px;
+}
+
+.button.disabled {
+    opacity: .5;
+    color: #aaaaaa;
+}
+
+.grey-button {
+    width: 90px;
+    border:1px solid #555;
+    color: #555;
+}
+
+.grey-button:active {
+    background-color: #555;
+    color: #ffffff;
+}
+
+.blue-button {
+    width: 90px;
+    border:1px solid #00A9DF;
+    color: #00A9DF;
+}
+
+.blue-button:active {
+    background-color: #00A9DF;
+    color: #ffffff;
+}
+
+.red-button {
+    width: 90px;
+    height: 15px;
+    -webkit-box-shadow:inset 1px 1px 0px 0px rgba(255, 255, 255, .2);
+    background-color:#B31B18;
+    -webkit-border-radius:3px;
+    border:1px solid #333333;
+    padding:7px 3px;
+}
+
+.red-button:active {
+    -webkit-box-shadow:inset -1px -1px 0px 0px rgba(255, 255, 255, .2);
+}
+
+/* The icon to open the drop down. */
+.drop-down {
+    background: url("images/settings_icon.png") no-repeat;
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+    background-size: 25px 25px;
+}
+
+.drop-down div {
+    display: none;
+}
+
+.drop-down-menu {
+    position: absolute;
+    z-index: 10;
+}
+
+.drop-down-menu-background {
+    -webkit-border-radius: 8px;
+    background-color: #f7f7f7;
+    padding: 0px;
+    position: relative;
+    top: -4px;
+}
+
+.drop-down-menu-background .item {
+    height: 28px;
+    padding: 12px 10px 0px 15px;
+    font-size: 13px;
+    color: #00A9DF;
+}
+
+.drop-down-menu-background .selected {
+    color: rgba(0,169,223, .5);
+}
+
+.drop-down-menu-background .item-disabled {
+    color: #999999;
+}
+
+.drop-down-menu-background hr {
+    height: 1px;
+    background-color: #bbbbbb;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.drop-down-menu-background .flip-switch {
+    float: right;
+    position: relative;
+    top: -6px;
+}
+
+.drop-down-menu-background .control-label {
+    padding-top: 3px;
+    float: left;
+    color: #555555;
+}
+
+#flip-switch-grey-background, #flip-switch-green-border {
+    height: 26px;
+    width: 45px;
+}
+
+/* Horizontal switch with on/off states. */
+.flip-switch {
+    overflow: hidden;
+    height: 28px;
+    width: 47px;
+}
+
+#flip-switch-grey-background {
+    border-radius: 13px;
+    border: 1px solid #DFDFDF;
+    position: absolute;
+}
+
+#flip-switch-green-border {
+    border-radius: 13px;
+    border: 1px solid #42D368;
+    position: absolute;
+}
+
+#flip-switch-green-background {
+    background-color: #42D368;
+    position: absolute;
+    top: 1px;
+    border-bottom-left-radius: 13px;
+    border-top-left-radius: 13px;
+    height: 26px;
+}
+
+#flip-switch-thumb {
+    border-radius: 12px;
+    width: 24px;
+    height: 24px;
+    background-color: #ffffff;
+    border: 1px solid #DFDFDF;
+    position: absolute;
+    box-shadow: 1px 3px 3px rgba(0,0,0,.05);
+    top: 1px;
+    left: 1px;
+}
+
+.magazine-title {
+    color: #555555;
+    font-size: 15px;
+}
+
+.folio-number {
+    color: #000000;
+    font-size: 14px;
+}
+
+/* Item renderer used to display an individual folio in the grid. */
+.folio-item-view {
+    float: left;
+    color: #ffffff;
+    position: relative;
+    font-size: 14px;
+}
+
+.folio-item-view .folio-thumb {
+    visibility: hidden;
+}
+
+.folio-item-view .folio-number {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 120%;
+}
+
+.folio-item-view #buy-button, .folio-item-view #section-download-button {
+    position: absolute;
+    right: 0px;
+    width: 45px;
+    height: 15px;
+    padding: 5px;
+}
+
+.folio-item-view #section-download-button {
+    width: 20px;
+    height: 13px;
+}
+
+.folio-item-view #subscribe-button {
+    float: left;
+    position: relative;
+    left: -97px;
+    top: 40px;
+}
+
+.folio-item-view .download-status {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0,0,0,.5);
+}
+
+.folio-item-view #toggle-download-button {
+    background-size: 21px 21px;
+    width: 21px;
+    height: 21px;
+    position: absolute;
+}
+
+.folio-item-view .cancel-download-button {
+    background: url("images/lib_cancel-normal@2x.png") no-repeat;
+}
+
+.folio-item-view .cancel-download-button:active, .folio-item-view .resume-download-button:active {
+    opacity: .5;
+}
+
+.folio-item-view .resume-download-button {
+    background: url("images/lib_resume-normal@2x.png") no-repeat;
+}
+
+/* Stretch out the "X" horizontally */
+.folio-item-view .cancel-download-button div {
+    -webkit-transform: scaleX(1.5);
+    padding: 3px 0px 0px 6px;
+    font-weight: normal;
+}
+
+.folio-item-view .magazine-title {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 120%;
+}
+
+.folio-item-view .state {
+    height: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    line-height: 120%;
+    font-style:italic;
+    color: #777777;
+}
+
+.folio-item-view .cloud-icon {
+    background: url("images/metadata_icon_cloud@2x.png") no-repeat;
+    background-size: 35px 23px;
+    width: 35px;
+    height: 23px; 
+    border: none;
+    position: absolute;
+    background-position: right;
+}
+
+.folio-item-view .cloud-icon:active {
+    opacity: .5;
+}
+
+.folio-item-view .section-cloud-icon {
+    left: -10px;
+    top: 5px;
+    position: relative;
+}
+
+.progress-track {
+    height: 3px;
+    left: 0px;
+    position: absolute;
+}
+
+.progress-track .progress-bar {
+    background-color: #33CCFF;
+    height: 3px;
+}
+
+.modal-background {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 9;
+}
+
+.modal-background-grey {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .3);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 9;
+}
+
+#restore-dialog, #update-dialog {
+    margin-left: -127px;
+}
+
+#restore-dialog .text-link, #update-dialog .text-link {
+    display: inline-block;
+    margin: 15px;
+    font-size: 15px;
+}
+
+/* Styles for the dialogs. */
+.dialog {
+    position: fixed;
+    width: 240px;
+    padding: 10px 10px 10px 10px;
+    z-index: 10;
+    background: rgba(255, 255, 255, .92);
+    color: #FFFFFF;
+    text-align: center;
+    -webkit-border-radius: 5px;
+    opacity: .92;
+    left: 50%;
+    top: 200px;
+}
+
+.dialog #title {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-align:left;
+    font-weight: bold;
+    text-align: center;
+    width: 330px;
+}
+
+.dialog #description {
+    font-size: 13px;
+    margin: 0px 0px 20px;
+    text-align:left;
+    text-align: center;
+    line-height: 120%;
+    color: #000000;
+}
+
+.dialog button {
+    color:#157EFB;
+    height: 35px;
+    font-style: bold;
+    white-space: nowrap;
+    text-align: center;
+    font: bold 16px "Helvetica Neue", "Arial", "sans-serif";
+}
+
+.dialog button:active {
+    color: rgba(21,126,251, .5);
+}
+
+#subscribe-dialog {
+    width: 330px;
+    margin-left: -175px;
+    top: 150px;
+    padding: 0px;
+}
+
+#subscribe-dialog #description {
+    padding: 15px;
+    margin-bottom: 10px;    
+}
+
+#subscribe-dialog .subscribe-button {
+    border-top: 1px solid #9BA0A3;
+    color:#157EFB;
+    font-size:16px;
+    display:block;
+    padding: 12px;
+}
+
+#subscribe-dialog .subscribe-button:active {
+    color: rgba(21,126,251, .5);
+}
+
+#subscribe-dialog .subscribe-dialog-button {
+    color:#157EFB;
+    font: bold 16px "Helvetica Neue", "Arial", "sans-serif";
+    border-top: 1px solid #9BA0A3;
+    padding: 12px;
+}
+
+#subscribe-dialog .subscribe-dialog-button:active {
+    color: rgba(21,126,251, .5);
+}
+
+/* The login dialog. */
+#login {
+    width: 410px;
+    position: absolute;
+    left: 50%;
+    margin-left: -210px;
+    top: 150px;
+    background-color: rgba(255, 255, 255, .92);
+    -webkit-box-shadow: 0 0 20px rgba(0,0,0,.2);
+    color: #ffffff;
+}
+
+#login .title {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 10px;
+    height: 37px;
+    padding-top: 20px;
+    color: #000000;
+    letter-spacing: 1px;
+}
+
+#login .description {
+    font-size: 15px;
+    margin: 15px 0px 20px 20px;
+    color: #999999;
+}
+
+#login .link {
+    margin: 5px 0px 20px 20px;
+    color: #33CCFF;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+#login #close {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 28px;
+    right: 12px;
+    font-size: 16px;
+    color: #00A9DF;
+    letter-spacing: 0px;
+}
+
+#login .link:active, #login #close:active, #login #submit:active {
+    color: rgba(0,169,223, .5);
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    -webkit-appearance: none;
+    background-color: rgba(255,255,255,0);
+    border-color: #BBBBBB;
+    border-style: solid;
+    border-width: 1px;
+    color: #000000;
+    font-size: 12px;
+    outline-color: black;
+    outline-style: none;
+    outline-width: 0px;
+    padding: 0px 4px 4px 4px;
+    margin-left: 20px;
+    width: 370px;
+    height: 31px;
+    -webkit-appearance: none;
+    margin: 0px 0px 15px 20px;
+    border-radius: 0px;
+}
+
+input::-webkit-input-placeholder {
+    font-size: 12px;
+    font-family: helvetica neue;
+    color: #bbbbbb;
+}
+
+#login .required {
+    position: relative;
+    top: -5px;
+    left: 3px;
+}
+
+#login #submit {
+    margin-left: 20px;
+    font-size: 20px;
+    color: #00A9DF;
+}
+
+#login #submit:active {
+    background-position: 0px -36px;
+}
+
+#login .error {
+    color: #ff0000;
+    font-size: 15px;
+    margin: 10px 10px 10px 20px;
+    height: 15px;
+}
+
+.form-button {
+    text-shadow: 0px 1px 0px rgb(0, 0, 0);
+    width:123px;
+    height:30px;
+    border-color:rgb(51,51,51);
+    border-width:1px;
+    border-radius:4%/12%;
+    border-style:solid;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    padding-top: 9px;
+}
+
+#loading {
+    margin: 20px 30px;
+    color: #000000;
+    font-size: 17px;
+}
+
+#preview-dialog-folio-cover {
+    position: relative;
+}
+
+#preview-dialog-content-container {
+    position: absolute;
+}
+
+/* entire container, keeps perspective */
+#preview-dialog-header-container {
+    -webkit-perspective: 1000;
+}
+
+#preview-dialog-header-border {
+    border-top: 3px solid rgba(255,255,255,.4);
+    border-left: 3px solid rgba(255,255,255,.4);
+    border-right: 3px solid rgba(255,255,255,.4);
+    -webkit-transform: rotateX(180deg);
+    -webkit-transition: .4s;
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-origin: 100% 128px;
+}
+
+#preview-dialog-header {
+    height: 98px;
+    padding: 15px;
+    background-color: rgba(255,255,255,.92);
+}
+
+#preview-dialog-header-text-container {
+    float: left;
+    height: 100px;
+}
+
+#preview-dialog-header .folio-number {
+    margin-top: 3px;
+}
+
+#preview-dialog-header .description {
+    color: #000000;
+    font-size: 12;
+    margin-top: 10px;
+}
+
+#preview-dialog-header-button-container {
+    float: right;
+}
+
+#preview-dialog-header .button {
+    width: 80px;
+    height: 15px;
+    padding: 6px;
+    margin-bottom: 8px;
+}
+
+@media screen and (orientation:portrait) {
+    #banner {
+        background: url("images/entitlement_banner_portrait.png") no-repeat;
+        background-size: 768px 140px;
+        width: 768px;
+    }
+
+    #grid, #archive-grid, #sections-grid {
+        width: 768px;
+    }
+    
+    .folio-item-view {
+        width: 216px;
+        height: 367px;
+        margin-left: 30px;
+    }
+    
+    .folio-item-view #buy-button {
+        top: 303px;
+    }
+    
+    .folio-item-view #section-download-button {
+        top: 288px;
+    }
+    
+    .folio-item-view .text, .folio-item-view .folio-number, .folio-item-view .magazine-title, .folio-item-view .state {
+        width: 150px;
+    }
+    
+    .folio-item-view .download-status {
+        width: 216px;
+        height: 288px;
+    }
+    
+    /* The background track of the download status. */
+    .folio-item-view .progress-track {
+        width: 216px;
+        top: 288px;
+    }
+    
+    .folio-item-view .folio-thumb {
+        width: 216px;
+        height: 288px;
+        margin-bottom: 10px;
+    }
+
+    .folio-item-view #folio-section-shadow {
+        background: url("images/folio_section_shadow_portrait.png") no-repeat;
+        background-size: 10px 272px;
+        width: 10px;
+        height: 272px;
+        position: absolute;
+        left: 216px;
+        top: 8px;
+    }
+    
+    .folio-item-view #purchasing-spinner {
+        position: absolute;
+        right: 14px;
+        bottom: 57px;
+    }
+    
+    .folio-item-view #toggle-download-button {
+        right: 0px;
+        top: 303px;
+    }
+    
+    .archive-view-selected {
+        width: 216px;
+        height: 288px;
+    }
+    
+    #preview-dialog-folio-cover {
+        width: 488px;
+        height: 650px;
+        border-left: 3px solid rgba(255,255,255,.4);
+        border-bottom: 3px solid rgba(255,255,255,.4);
+        border-right: 3px solid rgba(255,255,255,.4);
+    }
+
+    #preview-dialog-header {
+        width: 458px;
+    }
+    
+    #preview-dialog-header-text-container {
+        width: 355px;
+    }
+}
+
+@media screen and (orientation:landscape) {
+    #banner {
+        background: url("images/entitlement_banner_landscape.png") no-repeat;
+        background-size: 1024px 140px;
+        width: 1024px;
+    }
+    
+    #grid, #archive-grid, #sections-grid {
+        width: 1024px;
+    }
+    
+    .folio-item-view {
+        width: 300px;
+        height: 285px;
+        margin-left: 30px;
+    }
+    
+    .folio-item-view #buy-button {
+        top: 236px;
+    }
+    
+     .folio-item-view #section-download-button {
+        top: 225px;
+    }
+    
+    .folio-item-view .text, .folio-item-view .folio-number, .folio-item-view .magazine-title, .folio-item-view .state {
+        width: 240px;
+    }
+    
+    .folio-item-view .download-status {
+        width: 300px;
+        height: 225px;
+    }
+    
+    /* The background track of the download status. */
+    .folio-item-view .progress-track {
+        width: 300px;
+        top: 225px;
+    }
+    
+    .folio-item-view .folio-thumb {
+        width: 168px;
+        height: 225px;
+        margin-bottom: 10px;
+    }
+
+    .folio-item-view #folio-section-shadow {
+        background: url("images/folio_section_shadow_landscape.png") no-repeat;
+        background-size: 10px 209px;
+        width: 10px;
+        height: 209px;
+        position: absolute;
+        left: 300px;
+        top: 8px;
+    }
+    
+    .folio-item-view #purchasing-spinner {
+        position: absolute;
+        right: 14px;
+        bottom: 40px;
+    }
+    
+    .folio-item-view #toggle-download-button {
+        right: 0px;
+        top: 240px;
+    }
+    
+    /* The folio preview is centered in this container. */
+    .folio-thumb-container {
+        width: 300px;
+        height: 225px;
+        background-color: #eeeeee;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    .archive-view-selected {
+        width: 300px;
+        height: 225px;
+    }
+    
+    #preview-dialog-folio-cover {
+        width: 326px;
+        height: 427px;
+    }
+
+    #preview-dialog-header {
+        width: 540px;
+    }
+    
+    #preview-dialog-folio-cover-container-border {
+        border-left: 3px solid rgba(255,255,255,.4);
+        border-bottom: 3px solid rgba(255,255,255,.4);
+        border-right: 3px solid rgba(255,255,255,.4);
+    }
+    
+    #preview-dialog-folio-cover-container {
+        width: 570px;
+        height: 427px;
+        text-align: center;
+        background-color: #eeeeee;
+    }
+    
+    #preview-dialog-header-text-container {
+        width: 435px;
+    }
+}
+
+/* The grid view of folios. */
+#grid {
+    margin-top: 36px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* The styles for the debug textarea. This is commented out in appview. */
+.debug {
+    width: 400px;
+    height: 300px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 9999;
+    opacity: .5;
+}
