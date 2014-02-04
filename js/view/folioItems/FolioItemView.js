@@ -495,11 +495,10 @@ ADOBE.FolioItemView = Backbone.View.extend({
 				this.$downloadStatus.off();
 				this.$downloadStatus.remove();
 				this.$downloadStatus = null;
-				
+
+				this.$cancelDownloadButton.off("click");
 				this.$cancelDownloadButton.remove();
 				this.$cancelDownloadButton = null;
-				
-				this.$cancelDownloadButton.off("click");
 			}
 		}
 	},
