@@ -76,8 +76,14 @@ ADOBE.SectionsView = Backbone.View.extend({
 		var $grid = this.$el.find("#sections-grid");
 		var isShowDownloadAllButton = false;
 		var scope = this;
-		for (var id in this.folio.sections.internal) {
-			var section = this.folio.sections.internal[id];
+
+		// Sort the sections by the order in which they are added in folio producer.
+		var sortedSections = this.folio.sections.sort(function(sectionA,sectionB){
+			return sectionA.index - sectionB.index;
+		});
+
+		for (var i = 0; i < sortedSections.length; i++) {
+			var section = sortedSections[i];
 			var item = new ADOBE.SectionFolioItemView({model: section});
 			item.$el.on("folioInstalled", function() {
 				scope.folioInstalledHandler();
