@@ -52,7 +52,7 @@ ADOBE.LoginDialog = Backbone.View.extend({
 			var clientY = e.clientY;
 			var $login = this.$el.find("#login");
 			var offset = $login.offset();
-			if (clientX < offset.left || clientX > offset.left + $login.width() || clientY < offset.top || clientY > offset.top + $login.height())
+			if (clientX < offset.left || clientX > offset.left + $login.width() || clientY + document.body.scrollTop < offset.top || clientY + document.body.scrollTop > offset.top + $login.height())
 				this.close();
 	},
 	
