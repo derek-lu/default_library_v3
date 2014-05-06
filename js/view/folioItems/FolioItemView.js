@@ -97,13 +97,13 @@ ADOBE.FolioItemView = Backbone.View.extend({
 				else if (ADOBE.isAPIAvailable && scope.folio.isViewable)
 					scope.folio.view();
 				else if (scope.folio.state != ADOBE.FolioStates.DOWNLOADING)
-					$(e.currentTarget).trigger("folioThumbClicked", [scope.folio, "folioThumb" + json.productId]);
+					$(e.currentTarget).trigger("folioThumbClicked", [scope.folio, "folioThumb" + json.productId.replace(/\./g,"")]);
 			} else {
-				$(e.currentTarget).trigger("folioThumbClicked", [json, "folioThumb" + json.productId]);
+				$(e.currentTarget).trigger("folioThumbClicked", [json, "folioThumb" + json.productId.replace(/\./g,"")]);
 			}
 		});
 		
-		$folioThumb.attr("id", "folioThumb" + json.productId);
+		$folioThumb.attr("id", "folioThumb" + json.productId.replace(/\./g,""));
 		
 		this.$buyButton.on("click", function() { scope.buyButton_clickHandler() });
 		
@@ -324,6 +324,11 @@ ADOBE.FolioItemView = Backbone.View.extend({
 	// Handler for when a user clicks the buy button.
 	buyButton_clickHandler: function() {
 		if (ADOBE.isAPIAvailable) {
+			if (!this.folio.isCompatible) {
+				alert("Please update your app to view this issue.");
+				return;
+			}
+			
 			var state = this.folio.state;
 			
 			if (state == ADOBE.FolioStates.PURCHASABLE) {
@@ -495,7 +500,7 @@ ADOBE.FolioItemView = Backbone.View.extend({
 				this.$downloadStatus.off();
 				this.$downloadStatus.remove();
 				this.$downloadStatus = null;
-
+				
 				this.$cancelDownloadButton.off("click");
 				this.$cancelDownloadButton.remove();
 				this.$cancelDownloadButton = null;
